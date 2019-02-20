@@ -1,28 +1,50 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Projects from './Projects';
+import SocialProfiles from './SocialProfiles';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    state = { displayBio: false };
+
+    //Constructor not needed due to setting state above
+    //can use arrow functions to declare functions to bind this
+    // constructor() {
+    //     super();
+    //     this.state = { displayBio: false };
+
+    //     this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
+    // }
+
+    toggleDisplayBio = () => {
+        this.setState({ displayBio: !this.state.displayBio });
+    }
+
+    render(){
+        return (
+            <div class='avenir'>
+                <h1>Hello!</h1>
+                <p>My name is Nevin.  I'm and Occupational Therapist learning to code</p>
+                <p>I'm currently working on an online resource for other Occupational Therapists to use</p>
+                {
+                    this.state.displayBio ? (
+                        <div>
+                            <p>I live in Collinsville, Il just outside of St. Louis, Mo.  I try to code every day.</p>
+                            <p>I have tried several coding languages and Javascript is my favorite so far.  I enjoy building apps with Express, node, react and postgres</p>
+                            <p>Beside coding, I like to read, go for walks with my wife and our two dogs.</p>
+                            <button onClick={this.toggleDisplayBio}>Read Less</button>
+                        </div>
+                    ): (
+                        <div>
+                            <button onClick={this.toggleDisplayBio}>Read more</button>
+                        </div>
+                    )
+                }
+                <hr />
+                <Projects />
+                <hr />
+                <SocialProfiles />
+            </div>
+        )
+    }
 }
 
 export default App;
