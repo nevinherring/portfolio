@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Projects from './Projects';
 import SocialProfiles from './SocialProfiles';
+import profile from './assets/profile_picture.jpg';
 
 class App extends Component {
     state = { displayBio: false };
@@ -21,6 +22,7 @@ class App extends Component {
     render(){
         return (
             <div class='avenir'>
+                <img src={profile} alt='profile of Nevin Herring' />
                 <h1>Hello!</h1>
                 <p>My name is Nevin.  I'm and Occupational Therapist learning to code</p>
                 <p>I'm currently working on an online resource for other Occupational Therapists to use</p>
